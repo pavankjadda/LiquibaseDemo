@@ -18,7 +18,6 @@ spring:
       enabled: true
   liquibase:
     contexts: dev
-    change-log: classpath:db/db.changelog-master.xml
 
 ## Server Properties
 server:
