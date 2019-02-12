@@ -58,6 +58,12 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>${liquibase-maven-plugin.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.liquibase.ext/liquibase-hibernate4 -->
+        <dependency>
+            <groupId>org.liquibase.ext</groupId>
+            <artifactId>liquibase-hibernate4</artifactId>
+            <version>3.6</version>
+        </dependency>
 
         <dependency>
             <groupId>de.codecentric</groupId>
