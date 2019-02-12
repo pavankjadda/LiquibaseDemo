@@ -2,4 +2,112 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="pjadda (generated)" id="1549946207045-1">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+            <column name="code" type="VARCHAR(45)"/>
+            <column name="iso_code" type="VARCHAR(45)"/>
+            <column name="region_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946207045-2">
+        <createTable tableName="region">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946207045-3">
+        <createIndex indexName="region_fk_idx" tableName="country">
+            <column name="region_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946207045-4">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="country" constraintName="region_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946820477-1">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+            <column name="code" type="VARCHAR(45)"/>
+            <column name="iso_code" type="VARCHAR(45)"/>
+            <column name="region_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946820477-2">
+        <createTable tableName="region">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946820477-3">
+        <createIndex indexName="region_fk_idx" tableName="country">
+            <column name="region_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549946820477-4">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="country" constraintName="region_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947042844-1">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+            <column name="code" type="VARCHAR(45)"/>
+            <column name="iso_code" type="VARCHAR(45)"/>
+            <column name="region_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947042844-2">
+        <createTable tableName="region">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947042844-3">
+        <createIndex indexName="region_fk_idx" tableName="country">
+            <column name="region_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947042844-4">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="country" constraintName="region_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947363884-1">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+            <column name="code" type="VARCHAR(45)"/>
+            <column name="iso_code" type="VARCHAR(45)"/>
+            <column name="region_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947363884-2">
+        <createTable tableName="region">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947363884-3">
+        <createIndex indexName="region_fk_idx" tableName="country">
+            <column name="region_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="pjadda (generated)" id="1549947363884-4">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="country" constraintName="region_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
 </databaseChangeLog>

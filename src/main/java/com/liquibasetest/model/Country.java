@@ -30,6 +30,9 @@ public class Country
     @Length(max = 3, min = 2)
     private String isoCode;
 
+    @Column(name = "test")
+    private String test;
+
     @ManyToOne
     @JoinColumn(name = "region_id")
     @JsonIgnore

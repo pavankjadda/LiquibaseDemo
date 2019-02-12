@@ -127,25 +127,7 @@
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
-                <executions>
-                    <!-- drop db before generating schema with hbm2ddl to avoid any
-      inconsistencies between changelog files and DATABASECHANGELOG table -->
-                    <execution>
-                        <id>drop-db</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>dropAll</goal>
-                        </goals>
-                    </execution>
-                    <!-- mark db up-to-date in the  DATABASECHANGELOG table after generating
-                        schema with hbm2ddl so that no migration is executed -->
-                    <execution>
-                        <id>mark-db-up-to-date</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>generateChangeLog</goal>
-                        </goals>
-                    </execution>
+  <!--              <executions>
                     <execution>
                         <id>generate-db-prev</id>
                         <phase>process-resources</phase>
@@ -163,7 +145,7 @@
                             <goal>diff</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
