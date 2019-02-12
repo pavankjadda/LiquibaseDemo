@@ -60,12 +60,7 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>${liquibase-maven-plugin.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.liquibase.ext/liquibase-hibernate4 -->
-        <dependency>
-            <groupId>org.liquibase.ext</groupId>
-            <artifactId>liquibase-hibernate4</artifactId>
-            <version>3.6</version>
-        </dependency>
+
 
         <dependency>
             <groupId>de.codecentric</groupId>
@@ -127,28 +122,53 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase-maven-plugin.version}</version>
                 <configuration>
-                    <changeLogFile>src/main/resources/db/changelog/db.changelog-master.xml</changeLogFile>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <driver>com.mysql.cj.jdbc.Driver</driver>
-                    <url>jdbc:mysql://localhost:3306/liquibasetest</url>
-                    <defaultSchemaName></defaultSchemaName>
-                    <username>root</username>
-                    <password>bcmc1234</password>
-                    <referenceUrl>hibernate:spring:com.liquibasetest.model?dialect=org.hibernate.dialect.MySQLDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
-                    <verbose>true</verbose>
-                    <logging>debug</logging>
+                    <logging>info</logging>
                 </configuration>
+                <executions>
+                    <!-- drop db before generating schema with hbm2ddl to avoid any
+      inconsistencies between changelog files and DATABASECHANGELOG table -->
+                    <execution>
+                        <id>drop-db</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>dropAll</goal>
+                        </goals>
+                    </execution>
+                    <!-- mark db up-to-date in the  DATABASECHANGELOG table after generating
+                        schema with hbm2ddl so that no migration is executed -->
+                    <execution>
+                        <id>mark-db-up-to-date</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>generateChangeLog</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-db-prev</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <dropFirst>true</dropFirst>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-db-diff</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>diff</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <dependencies>
-
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
-                        <artifactId>liquibase-hibernate5</artifactId>
-                        <version>${liquibase-hibernate5.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-jpa</artifactId>
-                        <version>${spring-boot.version}</version>
+                        <artifactId>liquibase-hibernate4</artifactId>
+                        <version>3.6</version>
                     </dependency>
                 </dependencies>
 
