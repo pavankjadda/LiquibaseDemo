@@ -19,7 +19,7 @@
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.1.1</spring-boot-admin.version>
         <hibernate.version>5.4.0.Final</hibernate.version>
-        <liquibase-maven-plugin.version>3.6.3</liquibase-maven-plugin.version>
+        <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
         <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
@@ -127,7 +127,7 @@
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <logging>debug</logging>
+                    <logging>info</logging>
                 </configuration>
                 <dependencies>
                     <dependency>
