@@ -16,11 +16,12 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.1.1.RELEASE</spring-boot.version>
+        <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.1.1</spring-boot-admin.version>
         <hibernate.version>5.4.0.Final</hibernate.version>
-        <liquibase-maven-plugin.version>3.6.3</liquibase-maven-plugin.version>
+        <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
         <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
 
     <dependencies>
@@ -33,10 +34,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -51,16 +49,6 @@
             <artifactId>hibernate-envers</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-maven-plugin</artifactId>
-            <version>${liquibase-maven-plugin.version}</version>
-        </dependency>
-
 
         <dependency>
             <groupId>de.codecentric</groupId>
@@ -76,11 +64,25 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
-<!--        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
             <scope>runtime</scope>
-        </dependency>-->
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+            <version>${liquibase-maven-plugin.version}</version>
+        </dependency>
+
+
+
+        <!--        <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <scope>runtime</scope>
+                </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -125,32 +127,23 @@
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <logging>info</logging>
+                    <logging>debug</logging>
                 </configuration>
-  <!--              <executions>
-                    <execution>
-                        <id>generate-db-prev</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                        <configuration>
-                            <dropFirst>true</dropFirst>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>generate-db-diff</id>
-                        <phase>process-test-resources</phase>
-                        <goals>
-                            <goal>diff</goal>
-                        </goals>
-                    </execution>
-                </executions>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
-                        <artifactId>liquibase-hibernate4</artifactId>
+                        <artifactId>liquibase-hibernate5</artifactId>
                         <version>3.6</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-data-jpa</artifactId>
+                        <version>${spring-boot.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>javax.validation</groupId>
+                        <artifactId>validation-api</artifactId>
+                        <version>${validation-api.version}</version>
                     </dependency>
                 </dependencies>
 
