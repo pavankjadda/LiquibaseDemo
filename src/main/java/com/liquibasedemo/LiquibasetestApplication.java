@@ -1,4 +1,4 @@
-package com.liquibasetest;
+package com.liquibasedemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

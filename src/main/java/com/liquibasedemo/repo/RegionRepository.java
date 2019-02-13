@@ -1,6 +1,6 @@
-package com.liquibasetest.repo;
+package com.liquibasedemo.repo;
 
-import com.liquibasetest.model.Region;
+import com.liquibasedemo.model.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

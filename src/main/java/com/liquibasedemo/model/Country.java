@@ -1,4 +1,4 @@
-package com.liquibasetest.model;
+package com.liquibasedemo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

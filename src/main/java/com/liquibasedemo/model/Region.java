@@ -1,4 +1,4 @@
-package com.liquibasetest.model;
+package com.liquibasedemo.model;
 
 
 import lombok.Data;
