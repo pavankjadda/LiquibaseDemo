@@ -132,6 +132,25 @@
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-db-prev</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <dropFirst>false</dropFirst>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-db-diff</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>diff</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
