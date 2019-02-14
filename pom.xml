@@ -140,7 +140,7 @@
                             <goal>update</goal>
                         </goals>
                         <configuration>
-                            <dropFirst>false</dropFirst>
+                            <dropFirst>true</dropFirst>
                         </configuration>
                     </execution>
                     <execution>
