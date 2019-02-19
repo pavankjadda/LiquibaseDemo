@@ -14,7 +14,6 @@ public class Country
 {
     @Id
     @Column(name = "id")
-    //@ColumnDefault(value = "0")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
