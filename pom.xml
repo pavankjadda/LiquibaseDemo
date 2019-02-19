@@ -20,6 +20,7 @@
         <spring-boot-admin.version>2.1.1</spring-boot-admin.version>
         <hibernate.version>5.4.0.Final</hibernate.version>
         <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
+        <liquibase.verion>3.5.5</liquibase.verion>
         <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
@@ -71,12 +72,7 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-maven-plugin</artifactId>
-            <version>${liquibase-maven-plugin.version}</version>
+            <version>${liquibase.verion}</version>
         </dependency>
 
         <dependency>
@@ -125,7 +121,7 @@
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
-<!--                <executions>
+                <executions>
                     <execution>
                         <id>generate-db-prev</id>
                         <phase>process-resources</phase>
@@ -143,7 +139,7 @@
                             <goal>diff</goal>
                         </goals>
                     </execution>
-                </executions>-->
+                </executions>
 
 <!--                <executions>
                     &lt;!&ndash; drop db before generating schema with hbm2ddl to avoid any
