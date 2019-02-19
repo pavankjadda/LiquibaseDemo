@@ -79,13 +79,6 @@
             <version>${liquibase-maven-plugin.version}</version>
         </dependency>
 
-
-
-        <!--        <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                    <scope>runtime</scope>
-                </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -132,7 +125,7 @@
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
-                <executions>
+<!--                <executions>
                     <execution>
                         <id>generate-db-prev</id>
                         <phase>process-resources</phase>
@@ -150,7 +143,28 @@
                             <goal>diff</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
+
+<!--                <executions>
+                    &lt;!&ndash; drop db before generating schema with hbm2ddl to avoid any
+                        inconsistencies between changelog files and DATABASECHANGELOG table &ndash;&gt;
+                    <execution>
+                        <id>drop-db</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>dropAll</goal>
+                        </goals>
+                    </execution>
+                    &lt;!&ndash; mark db up-to-date in the  DATABASECHANGELOG table after generating
+                        schema with hbm2ddl so that no migration is executed &ndash;&gt;
+                    <execution>
+                        <id>mark-db-up-to-date</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>changelogSync</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
