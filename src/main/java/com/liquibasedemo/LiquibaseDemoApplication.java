@@ -4,12 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LiquibasetestApplication
+public class LiquibaseDemoApplication
 {
 
     public static void main(String[] args)
     {
-        SpringApplication.run(LiquibasetestApplication.class, args);
+        SpringApplication.run(LiquibaseDemoApplication.class, args);
     }
 
 }
