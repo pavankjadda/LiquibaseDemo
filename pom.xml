@@ -120,6 +120,7 @@
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
+
                 <!--<executions>
                     <execution>
                         <id>generate-db-prev</id>
@@ -177,9 +178,7 @@
                         <version>${validation-api.version}</version>
                     </dependency>
                 </dependencies>
-
             </plugin>
         </plugins>
     </build>
-
 </project>
