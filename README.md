@@ -55,5 +55,17 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     contexts: dev
     change-log: classpath:db/db.changelog-master.xml
 ```
-5. Now let's create empty database with a a table on it
-
+5. Add following dependency to `pom.xml`
+```xml
+      <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+```
+6. Now let's create empty database with a a table on it
+7. Now go to command line and run. It will create `db.changelog-master.xml` 
+```
+$ mvn liquibase:generateChangeLog
+```
+8. Now drop the DB (Mandatory if you started with empty database) and run the Spring Boot project. Spring Boot creates tables `DATABASECHANGELOG` and `DATABASECHANGELOGLOCK` tables in DB
+9. 
