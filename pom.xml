@@ -120,19 +120,16 @@
                     <logging>info</logging>
                 </configuration>
 
-                <!--<executions>
+                <executions>
                     <execution>
-                        <id>generate-db-prev</id>
+                        <id>update-profile</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>update</goal>
                         </goals>
-                        <configuration>
-                            <dropFirst>true</dropFirst>
-                        </configuration>
                     </execution>
                     <execution>
-                        <id>generate-db-diff</id>
+                        <id>diff-profile</id>
                         <phase>process-test-resources</phase>
                         <goals>
                             <goal>diff</goal>
@@ -140,26 +137,6 @@
                     </execution>
                 </executions>
 
-                <executions>
-                    &lt;!&ndash; drop db before generating schema with hbm2ddl to avoid any
-                        inconsistencies between changelog files and DATABASECHANGELOG table &ndash;&gt;
-                    <execution>
-                        <id>drop-db</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>dropAll</goal>
-                        </goals>
-                    </execution>
-                    &lt;!&ndash; mark db up-to-date in the  DATABASECHANGELOG table after generating
-                        schema with hbm2ddl so that no migration is executed &ndash;&gt;
-                    <execution>
-                        <id>mark-db-up-to-date</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>changelogSync</goal>
-                        </goals>
-                    </execution>
-                </executions>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
