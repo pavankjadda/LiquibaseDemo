@@ -72,7 +72,6 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.verion}</version>
         </dependency>
 
         <dependency>
@@ -141,7 +140,8 @@
                     </execution>
                 </executions>
 
-<!--                <executions>
+                <!--
+                <executions>
                     &lt;!&ndash; drop db before generating schema with hbm2ddl to avoid any
                         inconsistencies between changelog files and DATABASECHANGELOG table &ndash;&gt;
                     <execution>
