@@ -12,7 +12,7 @@ password=<your password>
 # Reference Properties
 referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dialect.MySQLDialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
 ```
-3 Add Liquibase plugin to pom.xml and change change log file locations. Replace versions based on my pom.xml file
+3. Add Liquibase plugin to pom.xml and change change log file locations. Replace versions based on my pom.xml file
 ```xml
 <plugin>
                 <groupId>org.liquibase</groupId>
@@ -49,11 +49,11 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
                 </dependencies>
             </plugin>
 ```
-4 Change `application-dev.yml` to point to custom change log file 
+4. Change `application-dev.yml` to point to custom change log file 
 ```yaml
   liquibase:
     contexts: dev
     change-log: classpath:db/db.changelog-master.xml
 ```
-5 Now let's create empty database with a a table on it
+5. Now let's create empty database with a a table on it
 
