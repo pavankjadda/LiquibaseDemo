@@ -55,4 +55,5 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     contexts: dev
     change-log: classpath:db/db.changelog-master.xml
 ```
-5 
+5 Now let's create empty database with a a table on it
+
