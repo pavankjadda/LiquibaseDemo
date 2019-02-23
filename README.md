@@ -1,5 +1,5 @@
 # Liquibase database evolution with with Spring Boot 
-Liquibase can not generate ChangeLog from empty database or JPA entities. It should be run against existing database(dev or test) initially before using Liquibase-Hibernate plugin. If you do not have existing database, create new one with 1 table and Liquibase takes it from there. Steps to setup Liquibase from Scratch
+Steps to setup Liquibase from Scratch
 1. Create SpringBoot project or clone this project
 2. Add `liquibase.properties` under src/main/resources folder with the following content and change DB properties accordingly
 ```properties
