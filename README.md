@@ -78,15 +78,17 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
             <artifactId>liquibase-core</artifactId>
         </dependency>
 ```
-6. Now let's create empty database `liquibasedemo` in MySQL server
+6. Create empty database `liquibasedemo` in MySQL server
 7. In liquibase-maven-plugin we have 2 custom profiles(You can give any name you want) but make sure to include phase and goals as is
-    - diff-profile (Generates Liquibase changeset based on changes JPA entities)
-    - update-profile (Updates the Database based on change sets generated in above step)
-8. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities, if you are running this for first time, it will generate change sets for all the files
+    - **diff-profile** (Generates Liquibase changeset based on changes JPA entities)
+    - **update-profile** (Updates the Database based on change sets generated in above step)
+8. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities
 ```
 $ mvn process-test-resources
 
 ```  
+> if you are running this for first time, it will generate change sets for all the Entities
+
 9. Now run update command to generate tables and `DATABASECHANGELOG` tables
 ```angular2
 $ mvn process-resources
