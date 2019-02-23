@@ -24,6 +24,22 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
+               <executions>
+                    <execution>
+                        <id>update-profile</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>diff-profile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>diff</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
@@ -62,10 +78,18 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
             <artifactId>liquibase-core</artifactId>
         </dependency>
 ```
-6. Now let's create empty database with a a table on it
-7. Now go to command line and run. It will create `db.changelog-master.xml` 
+6. Now let's create empty database `liquibasedemo` in MySQL server
+7. In liquibase-maven-plugin we have 2 custom profiles(You can give any name you want) but make sure to include phase and goals as is
+    - diff-profile (Generates Liquibase changeset based on changes JPA entities)
+    - update-profile (Updates the Database based on change sets generated in above step)
+8. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities, if you are running this for first time, it will generate change sets for all the files
 ```
-$ mvn liquibase:generateChangeLog
+$ mvn process-test-resources
+
+```  
+9. Now run update command to generate tables and `DATABASECHANGELOG` tables
+```angular2
+$ mvn process-resources
 ```
-8. Now drop the DB (Mandatory if you started with empty database) and run the Spring Boot project. Spring Boot creates tables `DATABASECHANGELOG` and `DATABASECHANGELOGLOCK` tables in DB
-9. 
+10. Now go to database see all the changes applied and tables created
+11. Repeat steps 8 and 9 every time you make any changes to JPA entities
