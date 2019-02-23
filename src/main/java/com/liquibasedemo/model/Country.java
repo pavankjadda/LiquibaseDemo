@@ -18,20 +18,14 @@ public class Country
     private Long Id;
 
     @Column(name = "name")
-    @Length(max = 200, min = 2)
     private String name;
 
     @Column(name = "code")
-    @Length(max = 3, min = 2)
     private String code;
 
     @Column(name = "iso_code")
-    @Length(max = 3, min = 2)
     private String isoCode;
 
-
-    @Column(name = "test")
-    private String test;
 
     @ManyToOne
     @JoinColumn(name = "region_id")
