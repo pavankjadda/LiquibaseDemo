@@ -83,7 +83,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
 7. In liquibase-maven-plugin we have 2 custom profiles(You can give any name you want) but make sure to include phase and goals as is
     - **diff-profile** (Generates Liquibase changeset based on changes JPA entities)
     - **update-profile** (Updates the Database based on change sets generated in above step)
-8. Create `db.changelog-master.xml` file in resources/db/ directory with the following content
+8. Create `db.changelog-master.xml` file in **resources/db/** directory with the following content
 ```
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
@@ -92,7 +92,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     <includeAll path="db/changelog/" />
 </databaseChangeLog>
 ```
-9. Create `changelog` folder in resources/db/ directory
+9. Create `changelog` folder in **resources/db/ directory**
 10. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities
 ```
 $ mvn process-test-resources
