@@ -84,7 +84,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     - **diff-profile** (Generates Liquibase changeset based on changes JPA entities)
     - **update-profile** (Updates the Database based on change sets generated in above step)
 8. Create `db.changelog-master.xml` file in **resources/db/** directory with the following content
-```
+```xml
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
