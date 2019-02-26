@@ -92,7 +92,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     <includeAll path="db/changelog/" />
 </databaseChangeLog>
 ```
-9. Create `changelog` folder in **resources/db/ directory**
+9. Create `changelog` folder in **resources/db/** directory
 10. Delete folder `target\classes\db` before executing below commands
 10. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities
 ```
