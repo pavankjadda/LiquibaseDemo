@@ -1,4 +1,4 @@
-# Liquibase database evolution with with Spring Boot 
+# Liquibase database evolution with with Spring Boot
 Steps to setup Liquibase from Scratch
 1. Create SpringBoot project or clone this project
 2. Add `liquibase.properties` under src/main/resources folder with the following content and change DB properties accordingly
@@ -66,7 +66,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     </dependencies>
 </plugin>
 ```
-4. Change `application-dev.yml` to point to custom change log file 
+4. Change `application-dev.yml` to point to custom change log file
 ```yaml
   liquibase:
     contexts: dev
@@ -98,7 +98,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
 ```
 $ mvn process-test-resources
 
-```  
+```
 > if you are running this for first time, it will generate change sets for all the Entities
 
 11. Now run update command to generate tables entity, `DATABASECHANGELOG` and `DATABASECHANGELOGLOCK` tables
@@ -107,3 +107,13 @@ $ mvn process-resources
 ```
 12. Now go to database see all the changes applied and tables created
 13. Repeat steps 8 and 9 every time you make any changes to JPA entities
+
+NB: If you are using spring-boot ver 1.5.x add:
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.15</version>
+    </dependency>
+
+to `liquibase-maven-plugin` dependencies.
