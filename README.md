@@ -22,7 +22,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     <configuration>
         <propertyFile>src/main/resources/liquibase.properties</propertyFile>
         <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
-        <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+        <diffChangeLogFile>${project.basedir}/src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
         <logging>info</logging>
     </configuration>
    <executions>
