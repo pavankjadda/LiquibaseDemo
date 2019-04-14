@@ -120,6 +120,15 @@
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
+		    <!-- Consider uncommenting the following if you are using jadira and receive errors -->
+		    <!--
+                    <systemProperties>
+                        <property>
+                            <name>jadira.usertype.useJdbc42Apis</name>
+                            <value>false</value>
+                        </property>
+                    </systemProperties>
+                    -->
                 </configuration>
 
                 <executions>
