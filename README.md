@@ -77,7 +77,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     </property>
   </systemProperties>
 ```
-to the `<configuration>` as suggested by [Devacfr](https://stackoverflow.com/users/3489158/devacfr) in [this stackoverflow answer](https://stackoverflow.com/questions/41409410/liquibase-hibernate5-not-working-with-liquibase-maven-plugin).
+to the `<configuration>` as suggested by [Devacfr](https://stackoverflow.com/users/3489158/devacfr) in [this stackoverflow answer](https://stackoverflow.com/a/54674834/509565).
 
 5. Change `application-dev.yml` to point to custom change log file 
 ```yaml
