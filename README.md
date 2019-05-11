@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/pavankjadda/LiquibaseDemo.svg?branch=master)](https://travis-ci.com/pavankjadda/LiquibaseDemo)
+
 # Liquibase database evolution with with Spring Boot 
 Steps to setup Liquibase from Scratch
 1. Create SpringBoot project or clone this project
