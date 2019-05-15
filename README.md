@@ -1,5 +1,6 @@
-# Liquibase database evolution with with Spring Boot 
-Liquibase can not generate ChangeLog from empty database or JPA entities. It should be run against existing database(dev or test) initially before using Liquibase-Hibernate plugin. If you do not have existing database, create new one with 1 table and Liquibase takes it from there. Steps to setup Liquibase from Scratch
+# Liquibase database evolution with with Spring Boot
+Steps to setup Liquibase from Scratch
+
 1. Create SpringBoot project or clone this project
 2. Add `liquibase.properties` under src/main/resources folder with the following content and change DB properties accordingly
 ```properties
@@ -22,7 +23,7 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     <configuration>
         <propertyFile>src/main/resources/liquibase.properties</propertyFile>
         <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
-        <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+        <diffChangeLogFile>${project.basedir}/src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
         <logging>info</logging>
     </configuration>
    <executions>
@@ -66,33 +67,66 @@ referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dial
     </dependencies>
 </plugin>
 ```
-4. Change `application-dev.yml` to point to custom change log file 
+
+4. If you are using Jadira consider adding
+```xml
+  <systemProperties>
+    <property>
+      <name>jadira.usertype.useJdbc42Apis</name>
+      <value>false</value>
+    </property>
+  </systemProperties>
+```
+to the `<configuration>` as suggested by [Devacfr](https://stackoverflow.com/users/3489158/devacfr) in [this stackoverflow answer](https://stackoverflow.com/a/54674834/509565).
+
+5. Change `application-dev.yml` to point to custom change log file 
 ```yaml
   liquibase:
     contexts: dev
     change-log: classpath:db/db.changelog-master.xml
 ```
-5. Add following dependency to `pom.xml`
+6. Add following dependency to `pom.xml`
 ```xml
 <dependency>
     <groupId>org.liquibase</groupId>
     <artifactId>liquibase-core</artifactId>
 </dependency>
 ```
-6. Create empty database `liquibasedemo` in MySQL server
-7. In liquibase-maven-plugin we have 2 custom profiles(You can give any name you want) but make sure to include phase and goals as is
+7. Create empty database `liquibasedemo` in MySQL server
+8. In liquibase-maven-plugin we have 2 custom profiles(You can give any name you want) but make sure to include phase and goals as is:
     - **diff-profile** (Generates Liquibase changeset based on changes JPA entities)
     - **update-profile** (Updates the Database based on change sets generated in above step)
-8. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities
+9. Create `db.changelog-master.xml` file in **resources/db/** directory with the following content
+```xml
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <includeAll path="db/changelog/" />
+</databaseChangeLog>
+```
+10. Create `changelog` folder in **resources/db/** directory
+11. Delete folder `target\classes\db` before executing below commands
+12. Now go to project root directory and run the following command (Below command equivalent to `$mvn liquibase:diff`) . It will generate Change Sets based JPA entities
 ```
 $ mvn process-test-resources
 
-```  
+```
 > if you are running this for first time, it will generate change sets for all the Entities
 
-9. Now run update command to generate tables entity, `DATABASECHANGELOG` and `DATABASECHANGELOGLOCK` tables
+13. Now run update command to generate tables entity, `DATABASECHANGELOG` and `DATABASECHANGELOGLOCK` tables
 ```angular2
 $ mvn process-resources
 ```
-10. Now go to database see all the changes applied and tables created
-11. Repeat steps 8 and 9 every time you make any changes to JPA entities
+12. Now go to database see all the changes applied and tables created
+13. Repeat steps 8 and 9 every time you make any changes to JPA entities
+
+NB: If you are using spring-boot ver 1.5.x add:
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.15</version>
+    </dependency>
+
+to `liquibase-maven-plugin` dependencies.
