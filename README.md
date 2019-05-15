@@ -1,3 +1,7 @@
+
+[![Build Status](https://travis-ci.com/pavankjadda/LiquibaseDemo.svg?branch=master)](https://travis-ci.com/pavankjadda/LiquibaseDemo)
+
+
 # Liquibase database evolution with with Spring Boot
 
 Liquibase can not generate ChangeLog from empty database or JPA entities. It should be run against existing database(dev or test) initially before using Liquibase-Hibernate plugin. If you do not have existing database, create new one with 1 table and Liquibase takes it from there. Steps to setup Liquibase from Scratch
