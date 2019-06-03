@@ -2,5 +2,9 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <includeAll path="db/changelog/" />
+    <changeSet author="pjadda (generated)" id="1550893688824-1">
+        <addColumn tableName="country">
+            <column name="test2" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
