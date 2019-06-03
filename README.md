@@ -122,7 +122,7 @@ $ mvn process-test-resources
 > if you are running this for first time, it will generate change sets for all the Entities
 
 13. Now run update command to generate tables entity, `DATABASECHANGELOG` and `DATABASECHANGELOGLOCK` tables
-```angular2
+```
 $ mvn process-resources
 ```
 12. Now go to database see all the changes applied and tables created
