@@ -25,9 +25,6 @@ public class Country
     @Column(name = "iso_code")
     private String isoCode;
 
-    @Column(name = "test_code")
-    private String testCode;
-
 
     @ManyToOne
     @JoinColumn(name = "region_id")

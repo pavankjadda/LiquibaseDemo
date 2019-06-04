@@ -22,7 +22,7 @@ jobs:
   include:
       ## Test Stage  ##
     - stage: Build App
-      if: branch = master || branch = development
+      if: (branch = master) or (branch = development)
       script:
       - mvn clean install -DskipTests=true
       
