@@ -14,7 +14,7 @@ public class Country
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -24,6 +24,9 @@ public class Country
 
     @Column(name = "iso_code")
     private String isoCode;
+
+    @Column(name = "test_code")
+    private String testCode;
 
 
     @ManyToOne
