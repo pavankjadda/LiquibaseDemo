@@ -31,8 +31,4 @@ public class Country
     @JsonIgnore
     private Region region;
 
-    public Country()
-    {
-    }
-
 }
