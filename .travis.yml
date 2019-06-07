@@ -3,6 +3,8 @@ language: java
 jdk:
   - openjdk11
   - oraclejdk11
+  - openjdk8
+  - oraclejdk8
 
 cache:
   directories:
@@ -26,11 +28,11 @@ jobs:
       script:
       - mvn clean install -DskipTests=true
       
-    ## Build Stage  ##
+    ## Build and Package Stage  ##
     - stage: Build App
       if: branch = master
       script:
-      - mvn clean package
+      - mvn clean package -DskipTests=true
 
 
 
