@@ -15,6 +15,7 @@
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
     <properties>
+        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <hibernate.version>5.4.3.Final</hibernate.version>
         <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
         <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
