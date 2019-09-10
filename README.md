@@ -1,5 +1,4 @@
 
-[![Build Status](https://travis-ci.com/pavankjadda/LiquibaseDemo.svg?branch=master)](https://travis-ci.com/pavankjadda/LiquibaseDemo)
 
 
 # Liquibase database evolution with with Spring Boot
