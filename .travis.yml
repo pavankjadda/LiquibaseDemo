@@ -24,13 +24,13 @@ jobs:
     - stage: Build App
       if: (branch = master) or (branch = development)
       script:
-      - mvn clean install -DskipTests=true
+      - mvn clean install -DskipTests=true -Dspring.active.profile=test
       
     ## Build Stage  ##
     - stage: Build App
       if: branch = master
       script:
-      - mvn clean package
+      - mvn clean package  -DskipTests=true -Dspring.active.profile=test
 
 
 
