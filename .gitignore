@@ -26,4 +26,4 @@
 /build/
 
 ####
-/changelog
+/src/main/resources/db/changelog
