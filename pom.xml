@@ -5,18 +5,18 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.9.RELEASE</version>
+        <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com</groupId>
     <artifactId>liquibasedemo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>liquibasedemo</name>
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
     <properties>
-        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
-        <hibernate.version>5.4.3.Final</hibernate.version>
+        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
+        <hibernate.version>5.4.9.Final</hibernate.version>
         <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
         <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
