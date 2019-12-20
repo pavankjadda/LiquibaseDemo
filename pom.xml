@@ -18,13 +18,14 @@
         <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
         <hibernate.version>5.4.10.Final</hibernate.version>
         <liquibase-maven-plugin.version>3.8.3</liquibase-maven-plugin.version>
+        <liquibase-core.version>3.8.3</liquibase-core.version>
         <liquibase-hibernate5.version>3.8</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
-        <javassist.version>3.24.0-GA</javassist.version>
-        <liquibase-core.version>3.8.1</liquibase-core.version>
+        <javassist.version>3.26.0-GA</javassist.version>
     </properties>
 
     <dependencies>
+        <!-- Core-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -37,7 +38,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase-core.version}</version>
+        </dependency>
+
+        <!-- Utilities-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -47,22 +60,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-envers</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>${liquibase-core.version}</version>
         </dependency>
 
         <dependency>
@@ -74,6 +76,8 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!-- Test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
