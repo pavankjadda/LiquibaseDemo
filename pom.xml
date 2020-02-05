@@ -10,7 +10,7 @@
     </parent>
     <groupId>com</groupId>
     <artifactId>liquibasedemo</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.1</version>
     <name>liquibasedemo</name>
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
@@ -25,6 +25,7 @@
     </properties>
 
     <dependencies>
+        <!-- Core-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -37,7 +38,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase-core.version}</version>
+        </dependency>
+
+        <!-- Utilities-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -74,6 +87,8 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!-- Test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -144,6 +159,7 @@
                         <artifactId>javassist</artifactId>
                         <version>${javassist.version}</version>
                     </dependency>
+
                 </dependencies>
             </plugin>
         </plugins>
