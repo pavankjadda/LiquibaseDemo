@@ -14,7 +14,7 @@ public class Country
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -30,9 +30,5 @@ public class Country
     @JoinColumn(name = "region_id")
     @JsonIgnore
     private Region region;
-
-    public Country()
-    {
-    }
 
 }

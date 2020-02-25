@@ -1,6 +1,7 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
+
 ### STS ###
 .apt_generated
 .classpath
@@ -23,3 +24,6 @@
 /nbdist/
 /.nb-gradle/
 /build/
+
+####
+/src/main/resources/db/changelog/

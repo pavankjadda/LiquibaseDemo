@@ -5,25 +5,27 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <version>2.2.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com</groupId>
     <artifactId>liquibasedemo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>liquibasedemo</name>
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
     <properties>
-        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
-        <hibernate.version>5.4.3.Final</hibernate.version>
-        <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
-        <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
+        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <hibernate.version>5.4.12.Final</hibernate.version>
+        <liquibase-maven-plugin.version>3.8.7</liquibase-maven-plugin.version>
+        <liquibase-hibernate5.version>3.8</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javassist.version>3.24.0-GA</javassist.version>
+        <liquibase-core.version>3.8.7</liquibase-core.version>
     </properties>
 
     <dependencies>
+        <!-- Core-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -37,6 +39,7 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!-- Utilities-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -51,6 +54,7 @@
             <artifactId>hibernate-envers</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -60,18 +64,20 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
+            <version>${liquibase-core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!-- Test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -79,17 +85,7 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-dependencies</artifactId>
-                <version>${spring-boot-admin.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <build>
         <plugins>
@@ -127,6 +123,11 @@
                 </executions>
 
                 <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-core</artifactId>
+                        <version>${liquibase-core.version}</version>
+                    </dependency>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
                         <artifactId>liquibase-hibernate5</artifactId>
