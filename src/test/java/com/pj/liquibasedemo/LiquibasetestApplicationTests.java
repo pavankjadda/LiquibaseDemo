@@ -1,4 +1,4 @@
-package com.liquibasedemo;
+package com.pj.liquibasedemo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.liquibasedemo.domain;
+package com.pj.liquibasedemo.domain;
 
 
 import lombok.Data;
