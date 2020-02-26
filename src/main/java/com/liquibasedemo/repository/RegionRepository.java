@@ -1,6 +1,6 @@
-package com.liquibasedemo.repo;
+package com.liquibasedemo.repository;
 
-import com.liquibasedemo.model.Region;
+import com.liquibasedemo.domain.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

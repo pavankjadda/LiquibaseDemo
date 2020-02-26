@@ -1,7 +1,7 @@
 package com.liquibasedemo.web;
 
-import com.liquibasedemo.model.Country;
-import com.liquibasedemo.repo.CountryRepository;
+import com.liquibasedemo.domain.Country;
+import com.liquibasedemo.repository.CountryRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

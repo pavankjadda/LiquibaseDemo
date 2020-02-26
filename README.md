@@ -18,7 +18,7 @@ Liquibase can not generate ChangeLog from empty database or JPA entities. It sho
     
     
     # Reference Properties
-    referenceUrl=hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dialect.MySQLDialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    referenceUrl=hibernate:spring:com.liquibasedemo.domain?dialect=org.hibernate.dialect.MySQLDialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     ```
 3. Add Liquibase plugin to pom.xml and change change log file locations. Replace versions based on my pom.xml file
     ```xml
