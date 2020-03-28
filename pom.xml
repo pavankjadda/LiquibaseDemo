@@ -17,11 +17,11 @@
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
         <hibernate.version>5.4.12.Final</hibernate.version>
-        <liquibase-maven-plugin.version>3.8.7</liquibase-maven-plugin.version>
+        <liquibase-core.version>3.8.8</liquibase-core.version>
+        <liquibase-maven-plugin.version>3.8.8</liquibase-maven-plugin.version>
         <liquibase-hibernate5.version>3.8</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javassist.version>3.24.0-GA</javassist.version>
-        <liquibase-core.version>3.8.7</liquibase-core.version>
     </properties>
 
     <dependencies>
