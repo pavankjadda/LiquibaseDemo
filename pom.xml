@@ -85,9 +85,43 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <activatedProfile>dev</activatedProfile>
+                <db.username>root</db.username>
+                <db.password>test1234</db.password>
+            </properties>
+        </profile>
 
+        <profile>
+            <id>test</id>
+            <properties>
+                <activatedProfile>test</activatedProfile>
+                <db.username>root</db.username>
+                <db.password>test1234</db.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <activatedProfile>prod</activatedProfile>
+                <db.username>root</db.username>
+                <db.password>test1234</db.password>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
+        <filters>
+            <filter>src/main/resources/liquibase.properties</filter>
+        </filters>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -105,23 +139,7 @@
                     <logging>info</logging>
                 </configuration>
 
-                <executions>
-                    <execution>
-                        <id>update-profile</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>diff-profile</id>
-                        <phase>process-test-resources</phase>
-                        <goals>
-                            <goal>diff</goal>
-                        </goals>
-                    </execution>
-                </executions>
-
+                <!-- Liquibase dependencies-->
                 <dependencies>
                     <dependency>
                         <groupId>org.liquibase</groupId>
