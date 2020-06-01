@@ -2,7 +2,6 @@ package com.pj.liquibasedemo.domain;
 
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,14 +21,13 @@ public class Region
     private Long Id;
 
     @Column(name = "name")
-    @Length(max = 20, min = 2)
     private String name;
 
     public Region()
     {
     }
 
-    public Region(@Length(max = 20, min = 2) String name)
+    public Region( String name)
     {
         this.name = name;
     }
