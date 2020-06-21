@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.0.RELEASE</version>
+        <version>2.3.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pj</groupId>
@@ -15,11 +15,11 @@
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
     <properties>
-        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <hibernate.version>5.4.17.Final</hibernate.version>
-        <liquibase-core.version>3.9.0</liquibase-core.version>
-        <liquibase-maven-plugin.version>3.9.0</liquibase-maven-plugin.version>
-        <liquibase-hibernate5.version>3.9.0</liquibase-hibernate5.version>
+        <liquibase-core.version>3.10.0</liquibase-core.version>
+        <liquibase-maven-plugin.version>3.10.0</liquibase-maven-plugin.version>
+        <liquibase-hibernate5.version>3.10.0</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javassist.version>3.27.0-GA</javassist.version>
     </properties>
@@ -133,9 +133,13 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase-maven-plugin.version}</version>
                 <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <url>jdbc:mysql://localhost:3306/liquibasedemo?serverTimezone=UTC</url>
+                    <username>root</username>
+                    <password>bcmc1234</password>
+                    <referenceUrl>hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dialect.MySQLDialect&amp;diffChangeLogFile=src/main/resources/db/db.changelog-master.xml</referenceUrl>
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+                    <outputChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</outputChangeLogFile>
                     <logging>info</logging>
                 </configuration>
 
