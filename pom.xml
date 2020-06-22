@@ -22,6 +22,7 @@
         <liquibase-hibernate5.version>3.10.0</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javassist.version>3.27.0-GA</javassist.version>
+        <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
     </properties>
 
     <dependencies>
@@ -93,8 +94,6 @@
             </activation>
             <properties>
                 <activatedProfile>dev</activatedProfile>
-                <db.username>root</db.username>
-                <db.password>test1234</db.password>
             </properties>
         </profile>
 
@@ -102,8 +101,6 @@
             <id>test</id>
             <properties>
                 <activatedProfile>test</activatedProfile>
-                <db.username>root</db.username>
-                <db.password>test1234</db.password>
             </properties>
         </profile>
 
@@ -111,8 +108,6 @@
             <id>prod</id>
             <properties>
                 <activatedProfile>prod</activatedProfile>
-                <db.username>root</db.username>
-                <db.password>test1234</db.password>
             </properties>
         </profile>
     </profiles>
@@ -133,13 +128,12 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase-maven-plugin.version}</version>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/liquibasedemo?serverTimezone=UTC</url>
-                    <username>root</username>
-                    <password>bcmc1234</password>
-                    <referenceUrl>hibernate:spring:com.liquibasedemo.model?dialect=org.hibernate.dialect.MySQLDialect&amp;diffChangeLogFile=src/main/resources/db/db.changelog-master.xml</referenceUrl>
+                    <url>${liquibase.url}</url>
+                    <username>${liquibase.username}</username>
+                    <password>${liquibase.password}</password>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <outputChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</outputChangeLogFile>
                     <logging>info</logging>
                 </configuration>
 
@@ -170,7 +164,11 @@
                         <artifactId>javassist</artifactId>
                         <version>${javassist.version}</version>
                     </dependency>
-
+                    <dependency>
+                        <groupId>javax.xml.bind</groupId>
+                        <artifactId>jaxb-api</artifactId>
+                        <version>${jaxb-api.version}</version>
+                    </dependency>
                 </dependencies>
             </plugin>
         </plugins>
