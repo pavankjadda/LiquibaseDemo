@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jaddap2 (generated)" id="1592804958248-1">
+        <createTable tableName="country">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="countryPK"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="iso_code" type="VARCHAR(255)"/>
+            <column name="iso_code_test" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="region_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jaddap2 (generated)" id="1592804958248-2">
+        <createTable tableName="region">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="regionPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jaddap2 (generated)" id="1592804958248-3">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="country" constraintName="FKs3bda8801uhqtttuaur9r6eic" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

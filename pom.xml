@@ -113,6 +113,13 @@
     </profiles>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <filters>
             <filter>src/main/resources/liquibase.properties</filter>
         </filters>
@@ -128,12 +135,9 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase-maven-plugin.version}</version>
                 <configuration>
-                    <url>${liquibase.url}</url>
-                    <username>${liquibase.username}</username>
-                    <password>${liquibase.password}</password>
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
-                    <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+                    <diffChangeLogFile>src/main/resources/db/changelog-${activatedProfile}/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
 
