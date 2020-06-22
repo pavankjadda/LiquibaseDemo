@@ -137,7 +137,7 @@
                 <configuration>
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     <changeLogFile>src/main/resources/db/db.changelog-master.xml</changeLogFile>
-                    <diffChangeLogFile>src/main/resources/db/changelog-${activatedProfile}/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
+                    <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <logging>info</logging>
                 </configuration>
 
