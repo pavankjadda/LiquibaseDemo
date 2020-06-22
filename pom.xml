@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.pj</groupId>
     <artifactId>liquibasedemo</artifactId>
-    <version>1.3</version>
+    <version>1.4.0</version>
     <name>liquibasedemo</name>
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
