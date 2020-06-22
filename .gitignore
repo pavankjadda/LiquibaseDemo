@@ -25,5 +25,3 @@
 /.nb-gradle/
 /build/
 
-####
-/src/main/resources/db/changelog/
