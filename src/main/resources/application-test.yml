@@ -17,15 +17,6 @@ spring:
   devtools:
     restart:
       enabled: true
-  liquibase:
-    contexts: dev
-    change-log: classpath:db/db.changelog-master.xml
-    user: ${spring.datasource.username}
-    password: ${spring.datasource.password}
-    url: ${spring.datasource.url}
-    enabled: true
-
-
 
 ## Server Properties
 server:

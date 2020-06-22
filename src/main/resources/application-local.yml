@@ -18,9 +18,6 @@ spring:
   devtools:
     restart:
       enabled: true
-  liquibase:
-    enabled: false
-
 
 
 ## Server Properties
