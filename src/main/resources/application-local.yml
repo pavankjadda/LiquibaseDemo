@@ -15,21 +15,11 @@ spring:
       ddl-auto: update
 
   # Liquibase properties
-  devtools:
-    restart:
-      enabled: true
-
+  liquibase:
+    enabled: false
 
 ## Server Properties
 server:
-  port: 8080
+  port: 8081
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["health","info"]
-  endpoint:
-    auditevents:
-      enabled: true
 
