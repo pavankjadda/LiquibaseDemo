@@ -4,9 +4,8 @@ spring:
     name: Liquibase Demo
   # Jpa Properties
   datasource:
-    #url: jdbc:mysql://localhost:3306/liquibasedemo?serverTimezone=UTC
-    url: ${spring.datasource.url}
-    username: ${spring.datasource.username}
+    url: jdbc:mysql://localhost:3306/liquibasedemo?serverTimezone=UTC
+    username: root
     password: ${spring.datasource.password}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
