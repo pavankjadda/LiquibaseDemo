@@ -1,6 +1,5 @@
 package com.pj.liquibasedemo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -35,10 +34,8 @@ public class Country
     @Column(name = "iso_code_test")
     private String isoCodeTest;
 
-
     @ManyToOne
     @JoinColumn(name = "region_id")
-    @JsonIgnore
     private Region region;
 
 }

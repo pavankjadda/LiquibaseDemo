@@ -18,17 +18,8 @@ public class Region
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
-
-    public Region()
-    {
-    }
-
-    public Region( String name)
-    {
-        this.name = name;
-    }
 }
