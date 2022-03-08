@@ -17,7 +17,7 @@
     <properties>
         <spring-boot.version>2.4.0</spring-boot.version>
         <hibernate.version>5.4.24.Final</hibernate.version>
-        <liquibase-core.version>4.2.0</liquibase-core.version>
+        <liquibase-core.version>4.8.0</liquibase-core.version>
         <liquibase-maven-plugin.version>4.2.0</liquibase-maven-plugin.version>
         <liquibase-hibernate5.version>4.1.1</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
