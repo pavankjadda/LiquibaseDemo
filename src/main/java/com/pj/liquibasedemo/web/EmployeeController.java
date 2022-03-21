@@ -9,33 +9,55 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Provides API endpoints for Employee and related operations
+ *
+ * @author Pavan Kumar Jadda
+ * @since 1.0.0
+ */
 @RestController
 @RequestMapping("/api/v1/employee")
 public class EmployeeController
 {
-    private final EmployeeRepository employeeRepository;
+  private final EmployeeRepository employeeRepository;
 
-    public EmployeeController(EmployeeRepository employeeRepository)
-    {
-        this.employeeRepository = employeeRepository;
-    }
+  public EmployeeController(EmployeeRepository employeeRepository)
+  {
+    this.employeeRepository = employeeRepository;
+  }
 
 
-    @GetMapping(path = "/list")
-    public List<Employee> findAll()
-    {
-        return employeeRepository.findAll();
-    }
+  /**
+   * Finds all employees in the database
+   *
+   * @return List of employees
+   *
+   * @author Pavan Kumar Jadda
+   * @since 1.0.0
+   */
+  @GetMapping(path = "/list")
+  public List<Employee> findAll()
+  {
+    return employeeRepository.findAll();
+  }
 
-    @GetMapping(path = "/create")
-    public Employee createEmployee()
-    {
-        Employee employee = new Employee();
-        employee.setFirstName("John");
-        employee.setLastName("Reese");
-        employee.setEmail("john.reese@example.com");
-        employee.setPhone("903-888-9999");
-        employee.setEmploymentType(EmploymentType.CONTRACTOR);
-        return employeeRepository.saveAndFlush(employee);
-    }
+  /**
+   * Creates a new employee in the database
+   *
+   * @return Newly created employee
+   *
+   * @author Pavan Kumar Jadda
+   * @since 1.0.0
+   */
+  @GetMapping(path = "/create")
+  public Employee createEmployee()
+  {
+    Employee employee = new Employee();
+    employee.setFirstName("John");
+    employee.setLastName("Reese");
+    employee.setEmail("john.reese@example.com");
+    employee.setPhone("903-888-9999");
+    employee.setEmploymentType(EmploymentType.CONTRACTOR);
+    return employeeRepository.saveAndFlush(employee);
+  }
 }

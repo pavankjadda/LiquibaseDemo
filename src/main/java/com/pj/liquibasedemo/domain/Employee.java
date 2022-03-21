@@ -10,7 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+/**
+ * Entity class that maps to employee table in the database.
+ *
+ * @author Pavan Kumar Jadda
+ * @since 1.0.0
+ */
 @Entity
 @Table(name = "employee")
 @Data
