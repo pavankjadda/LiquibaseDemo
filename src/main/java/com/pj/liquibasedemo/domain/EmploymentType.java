@@ -1,5 +1,11 @@
 package com.pj.liquibasedemo.domain;
 
+/**
+ * Enum that represents the employment type.
+ *
+ * @author Pavan Kumar Jadda
+ * @since 1.0.0
+ */
 public enum EmploymentType
 {
 	CONTRACTOR("contractor"),

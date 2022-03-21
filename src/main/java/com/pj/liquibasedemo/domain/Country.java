@@ -11,7 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ * Entity class that maps to country table in the database.
+ *
+ * @author Pavan Kumar Jadda
+ * @since 1.0.0
+ */
 @Entity
 @Table(name = "country")
 @Data
