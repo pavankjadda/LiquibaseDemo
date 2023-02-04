@@ -17,9 +17,9 @@
     <properties>
         <spring-boot.version>3.0.2</spring-boot.version>
         <hibernate.version>6.1.6.Final</hibernate.version>
-        <liquibase-core.version>4.16.1</liquibase-core.version>
-        <liquibase-maven-plugin.version>4.16.1</liquibase-maven-plugin.version>
-        <liquibase-hibernate5.version>4.16.1</liquibase-hibernate5.version>
+        <liquibase-core.version>4.19.0</liquibase-core.version>
+        <liquibase-maven-plugin.version>4.19.0</liquibase-maven-plugin.version>
+        <liquibase-hibernate5.version>4.19.0</liquibase-hibernate5.version>
         <javassist.version>3.29.0-GA</javassist.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
     </properties>
