@@ -5,22 +5,22 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.4</version>
+        <version>3.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pj</groupId>
     <artifactId>liquibasedemo</artifactId>
-    <version>2.3.0</version>
+    <version>3.0.0</version>
     <name>liquibasedemo</name>
     <description>Liquibase Demo project with Spring Boot and Spring Data</description>
 
     <properties>
-        <spring-boot.version>2.6.4</spring-boot.version>
-        <hibernate.version>5.6.7.Final</hibernate.version>
-        <liquibase-core.version>4.9.0</liquibase-core.version>
-        <liquibase-maven-plugin.version>4.9.0</liquibase-maven-plugin.version>
-        <liquibase-hibernate5.version>4.9.0</liquibase-hibernate5.version>
-        <javassist.version>3.27.0-GA</javassist.version>
+        <spring-boot.version>3.0.2</spring-boot.version>
+        <hibernate.version>6.1.6.Final</hibernate.version>
+        <liquibase-core.version>4.16.1</liquibase-core.version>
+        <liquibase-maven-plugin.version>4.16.1</liquibase-maven-plugin.version>
+        <liquibase-hibernate5.version>4.16.1</liquibase-hibernate5.version>
+        <javassist.version>3.29.0-GA</javassist.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
     </properties>
 
